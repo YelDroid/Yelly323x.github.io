@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solar Lights 💡 (Product Advertisement)</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lavender;
+        scroll-behavior: smooth;
+    }
+
+    /* Layout */
+    .frameset {
+        display: grid;
+        grid-template-rows: 30% auto;
+        height: 100vh;
+    }
+
+    /* Top Header */
+    .top-frame {
+        background-color: #006699;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+    }
+
+    .cart {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 18px;
+        background-color: white;
+        color: #006699;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Left Menu */
+    .main-frame {
+        display: grid;
+        grid-template-columns: 25% auto;
+        height: 100%;
+    }
+
+    .menu-frame {
+        background-color: #f0f8ff;
+        padding: 15px;
+        border-right: 2px solid #006699;
+    }
+
+    .menu-frame a {
+        display: block;
+        padding: 8px 0;
+        color: #006699;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .menu-frame a:hover {
+        text-decoration: underline;
+        color: #004466;
+    }
+
+    /* Product Display Area */
+    .display-frame {
+        padding: 20px;
+        overflow: hidden; /* no scrolling */
+    }
+
+    .product {
+        display: none; /* hide all products initially */
+    }
+
+    h1, h2, h3 {
+        margin: 0 0 10px 0;
+    }
+
+    img {
+        border-radius: 5px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    /* Buttons */
+    .add-btn {
+        background-color: #006699;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .add-btn:hover {
+        background-color: #004466;
+    }
+
+    .add-btn.in-cart {
+        background-color: gray;
+        cursor: not-allowed;
+    }
+
+    /* Cart Modal */
+    .cart-modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 320px;
+        height: 100%;
+        background-color: white;
+        box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+        padding: 20px;
+        overflow-y: auto;
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .cart-modal.open {
+        transform: translateX(0);
+    }
+
+    .cart-modal h2 {
+        color: #006699;
+        margin-top: 0;
+    }
+
+    .cart-item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .buy-now-btn {
+        background-color: #006699;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .close-cart {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 22px;
+        cursor: pointer;
+        color: #006699;
+    }
+</style>
+</head>
+<body>
+
+<div class="frameset">
+
+    <!-- Top Header -->
+    <div class="top-frame">
+        <h1><marquee behavior="alternate">🌞 SOLAR LIGHTS 💡 (Product Advertisement)</marquee></h1>
+        <p><i>Brighten Your World with Renewable Energy</i></p>
+        <div class="cart" id="cart-btn">🛒 Cart: <span id="cart-count">0</span></div>
+    </div>
+
+    <!-- Body -->
+    <div class="main-frame">
+
+        <!-- Left Menu -->
+        <div class="menu-frame">
+            <h3>🌅 Product Menu</h3>
+            <a href="#p1">Solar Street Lights</a>
+            <a href="#p2">LED Solar Street Lights</a>
+            <a href="#p3">Solar Lamps</a>
+            <a href="#p4">Solar Flood Light</a>
+            <a href="#p5">Solar Bulbs Lamp</a>
+            <a href="#p6">Solar Ceiling Light</a>
+            <a href="#p7">Solar Garden Light</a>
+            <a href="#p8">Solar Light 1800</a>
+            <a href="#p9">Solar Lighting System</a>
+            <a href="#p10">Solar Street Light UFO</a>
+        </div>
+
+        <!-- Product Display -->
+        <div class="display-frame">
+            <h2><i>What Are Solar Lights and Why Are They Important?</i></h2>
+            <p>Solar lights are eco-friendly systems powered by sunlight and stored in rechargeable batteries. They are cost-effective, sustainable, and great for the environment.</p>
+
+            <!-- All 10 Products -->
+            <div class="product" id="p1">
+                <h3>1. Solar Street Lights – ₱550</h3>
+                <p class="product-description">High-performance solar street light suitable for outdoor roads and pathways, with long-lasting battery and bright LED illumination.</p>
+                <img src="Solarstreetlight.JPG" width="500" height="270" alt="Solar Street Lights"><br>
+                <ul>
+                    <li>1000W+ LED with 168 LEDs delivers bright, wide-area lighting.</li>
+                    <li>IP67 waterproof ABS housing.</li>
+                    <li>Remote control with motion sensor modes.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Street Lights" data-price="550">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p2">
+                <h3>2. LED Solar Street Lights – ₱1500</h3>
+                <p class="product-description">Energy-efficient LED solar street lights with waterproof design, ideal for streets, parks, and outdoor lighting projects.</p>
+                <img src="LedSolarstreetlight.JPG" width="500" height="270" alt="LED Solar Street Lights"><br>
+                <ul>
+                    <li>2000W LED, IP67 waterproof.</li>
+                    <li>Remote & motion sensor control.</li>
+                </ul>
+                <button class="add-btn" data-name="LED Solar Street Lights" data-price="1500">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p3">
+                <h3>3. Solar Lamps – ₱340</h3>
+                <p class="product-description">Compact and portable solar lamps perfect for home, garden, or camping, offering automatic night light functionality.</p>
+                <img src="SolarLamps.JPG" width="500" height="270" alt="Solar Lamps"><br>
+                <ul>
+                    <li>Automatic night light with remote.</li>
+                    <li>Energy-saving and waterproof.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Lamps" data-price="340">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p4">
+                <h3>4. Solar Flood Light – ₱543</h3>
+                <p class="product-description">Durable solar flood lights designed for wide-area illumination, with smart light control and multiple power options.</p>
+                <img src="Solarfloodlight.JPG" width="500" height="270" alt="Solar Flood Light"><br>
+                <ul>
+                    <li>Multiple power options and remote modes.</li>
+                    <li>Waterproof and intelligent light control.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Flood Light" data-price="543">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p5">
+                <h3>5. Solar Bulbs Lamp – ₱99</h3>
+                <p class="product-description">Affordable solar bulb lamps with multiple high-brightness LEDs, rechargeable and easy to use for homes and small spaces.</p>
+                <img src="Solarpanel.JPG" width="500" height="270" alt="Solar Bulbs Lamp"><br>
+                <ul>
+                    <li>20 high-brightness LED bulbs.</li>
+                    <li>Rechargeable and portable.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Bulbs Lamp" data-price="99">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p6">
+                <h3>6. Solar Ceiling Light – ₱280</h3>
+                <p class="product-description">Bright and energy-efficient solar ceiling light with smart charging system, ideal for indoor and semi-outdoor use.</p>
+                <img src="Solarceilinglight.JPG" width="500" height="270" alt="Solar Ceiling Light"><br>
+                <ul>
+                    <li>9000K daylight, IP67 waterproof.</li>
+                    <li>Smart charging system.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Ceiling Light" data-price="280">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p7">
+                <h3>7. Solar Garden Light – ₱450</h3>
+                <p class="product-description">Elegant solar garden lights that automatically turn on/off, perfect for pathways, gardens, and outdoor decoration.</p>
+                <img src="Solargardenlight.jpg" width="500" height="270" alt="Solar Garden Light"><br>
+                <ul>
+                    <li>Automatic on/off, easy installation.</li>
+                    <li>Perfect for gardens and pathways.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Garden Light" data-price="450">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p8">
+                <h3>8. Solar Light 1800 – ₱799</h3>
+                <p class="product-description">High-capacity solar light with motion sensor and long 18-hour illumination, suitable for outdoor security lighting.</p>
+                <img src="Solarlight1800.jpg" width="500" height="270" alt="Solar Light 1800"><br>
+                <ul>
+                    <li>Motion sensor with remote.</li>
+                    <li>18-hour lighting time.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Light 1800" data-price="799">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p9">
+                <h3>9. Solar Lighting System – ₱1,299</h3>
+                <p class="product-description">Complete solar lighting kit including multiple bulbs and battery pack, perfect for homes, offices, and outdoor areas.</p>
+                <img src="Solarlightingsystem.jpg" width="500" height="270" alt="Solar Lighting System"><br>
+                <ul>
+                    <li>Complete solar lighting kit.</li>
+                    <li>Includes multiple bulbs and battery pack.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Lighting System" data-price="1299">🛒 Add to Cart</button>
+            </div>
+
+            <div class="product" id="p10">
+                <h3>10. Solar Street Light UFO – ₱1,099</h3>
+                <p class="product-description">UFO-style solar street light with motion and dusk sensors, perfect for modern street or outdoor area illumination.</p>
+                <img src="Solarstreetlightufo.jpg" width="500" height="270" alt="Solar Street Light UFO"><br>
+                <ul>
+                    <li>UFO-style, motion and dusk sensors.</li>
+                    <li>Waterproof aluminum body.</li>
+                </ul>
+                <button class="add-btn" data-name="Solar Street Light UFO" data-price="1099">🛒 Add to Cart</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Cart Modal -->
+<div class="cart-modal" id="cart-modal">
+    <span class="close-cart" id="close-cart">&times;</span>
+    <h2>🛒 Your Cart</h2>
+    <div id="cart-items"></div>
+    <hr>
+    <h3>Total: ₱<span id="cart-total">0</span></h3>
+    <button class="buy-now-btn" id="buy-now">Buy Now</button>
+</div>
+
+<script>
+    let cart = [];
+
+    const buttons = document.querySelectorAll('.add-btn');
+    const cartCount = document.getElementById('cart-count');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartModal = document.getElementById('cart-modal');
+    const cartBtn = document.getElementById('cart-btn');
+    const closeCart = document.getElementById('close-cart');
+    const buyNowBtn = document.getElementById('buy-now');
+
+    // Add to Cart functionality
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const name = this.dataset.name;
+            const price = parseFloat(this.dataset.price);
+
+            if (!cart.find(item => item.name === name)) {
+                cart.push({ name, price });
+                updateCartDisplay();
+                this.textContent = '✅ In Cart';
+                this.classList.add('in-cart');
+                this.disabled = true;
+            }
+        });
+    });
+
+    function updateCartDisplay() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price;
+            const div = document.createElement('div');
+            div.className = 'cart-item';
+            div.innerHTML = `<strong>${item.name}</strong><br>₱${item.price}`;
+            cartItemsContainer.appendChild(div);
+        });
+        cartTotal.textContent = total.toFixed(2);
+        cartCount.textContent = cart.length;
+    }
+
+    cartBtn.addEventListener('click', () => {
+        cartModal.classList.add('open');
+    });
+
+    closeCart.addEventListener('click', () => {
+        cartModal.classList.remove('open');
+    });
+
+    buyNowBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('Your cart is empty!');
+        } else {
+            alert('✅ Thank you for your purchase!');
+            cart = [];
+            updateCartDisplay();
+            document.querySelectorAll('.add-btn').forEach(b => {
+                b.textContent = '🛒 Add to Cart';
+                b.classList.remove('in-cart');
+                b.disabled = false;
+            });
+            cartModal.classList.remove('open');
+        }
+    });
+
+    // Show only selected product
+    const products = document.querySelectorAll('.product');
+    products[0].style.display = 'block'; // show first product by default
+
+    document.querySelectorAll('.menu-frame a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            products.forEach(p => p.style.display = 'none'); // hide all
+            document.getElementById(targetId).style.display = 'block'; // show selected
+        });
+    });
+</script>
+
+</body>
+</html>
